@@ -1,5 +1,7 @@
 FROM ruby:2.4-alpine
 
+MAINTAINER Monserrat Sedeno <monserrat.sedeno@digitalonus.com>
+
 ARG BUNDLER_ARGS="--jobs 3 --retry 3"
 
 RUN adduser -h /foodcritic -g foodcritic -D foodcritic
@@ -7,6 +9,9 @@ RUN adduser -h /foodcritic -g foodcritic -D foodcritic
 COPY . /foodcritic
 
 WORKDIR /foodcritic
+RUN apt-get update -qq && apt-get install -y build-essential nodejs libpq-dev
+
+COPY Gemfile /foodcritic
 
 RUN set -ex && \
   # install dependencies
