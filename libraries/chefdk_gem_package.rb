@@ -19,8 +19,6 @@ class Chef
 
     provides :jenkins_chefci_chefdk_gem_package
 
-    use_inline_resources
 
   end
 end
-

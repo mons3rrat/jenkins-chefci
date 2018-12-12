@@ -1,11 +1,11 @@
 name             'jenkins-chefci'
 maintainer       'Steffen Gebert'
 maintainer_email 'steffen.gebert@typo3.org'
-license          'Apache 2.0'
+license          'Apache-2.0'
 description      'Jenkins-based Cookbook Pipeline'
 long_description 'Sets up a Chef CI/CD based on Jenkins Pipelines.'
 version          IO.read(File.join(File.dirname(__FILE__), 'VERSION')) rescue '0.0.1'
-
+chef_version     '>= 12.5' if respond_to?(:chef_version)
 issues_url       'https://github.com/TYPO3-cookbooks/jenkins-chefci/issues' if respond_to?(:issues_url)
 source_url       'https://github.com/TYPO3-cookbooks/jenkins-chefci' if respond_to?(:source_url)
 
