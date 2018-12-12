@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat
  pipeline {
     agent {
         docker {
-            image 'sedenom/foodcritic
+            image 'sedenom/foodcritic'
             args '-v tf_plugins:/plugins'
         }
     }
