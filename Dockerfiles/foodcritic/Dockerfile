@@ -4,23 +4,14 @@ MAINTAINER Monserrat Sedeno <monserrat.sedeno@digitalonus.com>
 
 ARG BUNDLER_ARGS="--jobs 3 --retry 3"
 
-RUN adduser -h /foodcritic -g foodcritic -D foodcritic
-
-COPY . /foodcritic
-
-WORKDIR /foodcritic
-
-ADD Gemfile Gemfile.lock /foodcritic
-
 RUN set -ex && \
   # install dependencies
   apk add --no-cache --virtual alpine-sdk && \
-  bundle install --system $BUNDLER_ARGS && \
-  bundle exec rake
+  bundle install --system $BUNDLER_ARGS
 
-RUN chown -R foodcritic:foodcritic /foodcritic
+#RUN chown -R foodcritic:foodcritic /foodcritic
 
-USER foodcritic
+#USER foodcritic
 
-ENTRYPOINT ["/foodcritic/bin/foodcritic"]
-CMD ["/foodcritic/bin/foodcritic","--help"]
+#ENTRYPOINT ["/foodcritic/bin/foodcritic"]
+#CMD ["/foodcritic/bin/foodcritic","--help"]

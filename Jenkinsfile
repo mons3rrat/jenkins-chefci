@@ -21,7 +21,7 @@ import java.text.SimpleDateFormat
         stage('run foodcritic'){
           steps{
               echo "running foodcritic"
-              sh 'foodcritic'
+              sh 'foodcritic spec/'
           }
         }
     }
