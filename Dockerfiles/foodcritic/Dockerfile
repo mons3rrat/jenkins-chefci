@@ -9,9 +9,8 @@ RUN adduser -h /foodcritic -g foodcritic -D foodcritic
 COPY . /foodcritic
 
 WORKDIR /foodcritic
-RUN apt-get update -qq && apt-get install -y build-essential nodejs libpq-dev
 
-COPY Gemfile /foodcritic
+ADD Gemfile Gemfile.lock /foodcritic
 
 RUN set -ex && \
   # install dependencies
